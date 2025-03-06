@@ -149,3 +149,14 @@ pgsql复制编辑blog-springboot
 - AI功能依赖第三方接口，需提前申请对应API Key。
 - 博客信息、背景图等可在后台“网站配置”模块实时调整。
 - 前端所有配置动态加载，后端控制，方便二次开发。
+
+## 版权与许可
+
+本项目基于开源项目 [blog](http://www.talkxj.com) 进行改进和功能扩展。  
+原项目由 www.talkxj.com 发布，并遵循 [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0) 许可协议。  
+本项目所有新增与修改部分同样遵循 [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0)。
+
+无论以任何形式获取或使用本项目代码，均需遵守上述许可协议。
+
+如需商业授权或合作，请联系：gxy06x@qq.com
+
