@@ -19,7 +19,7 @@ import static com.ai.blog.constant.OptTypeConst.REMOVE;
 import static com.ai.blog.constant.OptTypeConst.UPDATE;
 
 /**
- * @author Guoxinyu
+ * @author 菜队
  * @description: 评论控制器
  * @date 2025-03-06 21:01
  * @email gxy06x@qq.com

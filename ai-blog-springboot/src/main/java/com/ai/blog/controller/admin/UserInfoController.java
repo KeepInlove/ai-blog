@@ -18,7 +18,7 @@ import java.util.List;
 import static com.ai.blog.constant.OptTypeConst.UPDATE;
 
 /**
- * @author Guoxinyu
+ * @author 菜队
  * @description: 用户信息
  * @date 2025-03-06 21:59
  * @email gxy06x@qq.com

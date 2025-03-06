@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * @author Guoxinyu
+ * @author 菜队
  * @description: 相册控制器
  * @date 2025-03-06 21:06
  * @email gxy06x@qq.com

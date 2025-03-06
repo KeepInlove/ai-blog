@@ -25,7 +25,7 @@ import static com.ai.blog.constant.OptTypeConst.SAVE_OR_UPDATE;
 
 /**
  * 相册控制器
- * @author Guoxinyu
+ * @author 菜队
  * @date 2025-03-06 21:04
  * @email gxy06x@qq.com
  */
