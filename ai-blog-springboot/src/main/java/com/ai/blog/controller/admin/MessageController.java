@@ -1,12 +1,12 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.admin;
 
-
-import com.ai.blog.annotation.AccessLimit;
 import com.ai.blog.annotation.OptLog;
 import com.ai.blog.dto.MessageBackDTO;
-import com.ai.blog.dto.MessageDTO;
 import com.ai.blog.service.MessageService;
-import com.ai.blog.vo.*;
+import com.ai.blog.vo.ConditionVO;
+import com.ai.blog.vo.PageResult;
+import com.ai.blog.vo.Result;
+import com.ai.blog.vo.ReviewVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -19,10 +19,10 @@ import static com.ai.blog.constant.OptTypeConst.REMOVE;
 import static com.ai.blog.constant.OptTypeConst.UPDATE;
 
 /**
- * 留言控制器
- *
- * @author xiaojie
- * @date 2021/07/29
+ * @author Guoxinyu
+ * @description: TODO
+ * @date 2025-03-06 21:04
+ * @email gxy06x@qq.com
  */
 @Tag(name = "留言模块")
 @RestController
@@ -31,35 +31,10 @@ public class MessageController {
     private MessageService messageService;
 
     /**
-     * 添加留言
-     *
-     * @param messageVO 留言信息
-     * @return {@link Result <>}
-     */
-    @AccessLimit(seconds = 60, maxCount = 1)
-    @Operation(summary = "添加留言")
-    @PostMapping("/messages")
-    public Result<?> saveMessage(@Valid @RequestBody MessageVO messageVO) {
-        messageService.saveMessage(messageVO);
-        return Result.ok();
-    }
-
-    /**
-     * 查看留言列表
-     *
-     * @return {@link Result<MessageDTO>} 留言列表
-     */
-    @Operation(summary = "查看留言列表")
-    @GetMapping("/messages")
-    public Result<List<MessageDTO>> listMessages() {
-        return Result.ok(messageService.listMessages());
-    }
-
-    /**
      * 查看后台留言列表
      *
      * @param condition 条件
-     * @return {@link Result<MessageBackDTO>} 留言列表
+     * @return {@link Result < MessageBackDTO >} 留言列表
      */
     @Operation(summary = "查看后台留言列表")
     @GetMapping("/admin/messages")
@@ -94,6 +69,4 @@ public class MessageController {
         messageService.removeByIds(messageIdList);
         return Result.ok();
     }
-
 }
-

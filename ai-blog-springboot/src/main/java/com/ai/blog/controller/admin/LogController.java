@@ -1,4 +1,4 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.dto.OperationLogDTO;
 import com.ai.blog.service.OperationLogService;

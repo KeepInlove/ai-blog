@@ -1,5 +1,4 @@
-package com.ai.blog.controller;
-
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.annotation.OptLog;
 import com.ai.blog.dto.TagBackDTO;
@@ -11,8 +10,8 @@ import com.ai.blog.vo.Result;
 import com.ai.blog.vo.TagVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,35 +19,22 @@ import java.util.List;
 import static com.ai.blog.constant.OptTypeConst.REMOVE;
 import static com.ai.blog.constant.OptTypeConst.SAVE_OR_UPDATE;
 
-
 /**
- * 标签控制器
- *
- * @author yezhiqiu
- * @date 2021/07/29
+ * @author Guoxinyu
+ * @description: TODO
+ * @date 2025-03-06 21:57
+ * @email gxy06x@qq.com
  */
 @Tag(name = "标签模块")
 @RestController
 public class TagController {
-    @Autowired
+    @Resource
     private TagService tagService;
-
-    /**
-     * 查询标签列表
-     *
-     * @return {@link Result <TagDTO>} 标签列表
-     */
-    @Operation(summary = "查询标签列表")
-    @GetMapping("/tags")
-    public Result<PageResult<TagDTO>> listTags() {
-        return Result.ok(tagService.listTags());
-    }
-
     /**
      * 查询后台标签列表
      *
      * @param condition 条件
-     * @return {@link Result<TagBackDTO>} 标签列表
+     * @return {@link Result < TagBackDTO >} 标签列表
      */
     @Operation(summary = "查询后台标签列表")
     @GetMapping("/admin/tags")
@@ -95,6 +81,4 @@ public class TagController {
         tagService.deleteTag(tagIdList);
         return Result.ok();
     }
-
 }
-

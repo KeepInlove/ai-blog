@@ -1,4 +1,4 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.dto.LabelOptionDTO;
 import com.ai.blog.dto.MenuDTO;

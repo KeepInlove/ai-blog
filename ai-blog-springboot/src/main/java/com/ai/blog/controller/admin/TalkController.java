@@ -1,4 +1,4 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.dto.TalkBackDTO;
 import com.ai.blog.dto.TalkDTO;
@@ -12,81 +12,32 @@ import com.ai.blog.vo.TalkVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
 /**
- * 说说控制器
- *
- * @author yezhiqiu
- * @date 2022/01/23
+ * @author Guoxinyu
+ * @description: TODO
+ * @date 2025-03-06 21:58
+ * @email gxy06x@qq.com
  */
 @Tag(name = "说说模块")
 @RestController
 public class TalkController {
-    @Autowired
+    @Resource
     private TalkService talkService;
-    @Autowired
+    @Resource
     private UploadStrategyContext uploadStrategyContext;
-
-    /**
-     * 查看首页说说
-     *
-     * @return {@link Result<String>}
-     */
-    @Operation(summary = "查看首页说说")
-    @GetMapping("/home/talks")
-    public Result<List<String>> listHomeTalks() {
-        return Result.ok(talkService.listHomeTalks());
-    }
-
-    /**
-     * 查看说说列表
-     *
-     * @return {@link Result<TalkDTO>}
-     */
-    @Operation(summary = "查看说说列表")
-    @GetMapping("/talks")
-    public Result<PageResult<TalkDTO>> listTalks() {
-        return Result.ok(talkService.listTalks());
-    }
-
-    /**
-     * 根据id查看说说
-     *
-     * @param talkId 说说id
-     * @return {@link Result<TalkDTO>}
-     */
-    @Operation(summary = "根据id查看说说")
-    @Parameter(name = "talkId", description = "说说id", required = true, example = "Integer")
-    @GetMapping("/talks/{talkId}")
-    public Result<TalkDTO> getTalkById(@PathVariable("talkId") Integer talkId) {
-        return Result.ok(talkService.getTalkById(talkId));
-    }
-
-    /**
-     * 点赞说说
-     *
-     * @param talkId 说说id
-     * @return {@link Result<>}
-     */
-    @Operation(summary = "点赞说说")
-    @Parameter(name = "talkId", description = "说说id", required = true, example = "Integer")
-    @PostMapping("/talks/{talkId}/like")
-    public Result<?> saveTalkLike(@PathVariable("talkId") Integer talkId) {
-        talkService.saveTalkLike(talkId);
-        return Result.ok();
-    }
 
     /**
      * 上传说说图片
      *
      * @param file 文件
-     * @return {@link Result<String>} 说说图片地址
+     * @return {@link Result <String>} 说说图片地址
      */
     @Operation(summary = "上传说说图片")
     @Parameter(name = "file", description = "说说图片", required = true, example = "MultipartFile")
@@ -125,7 +76,7 @@ public class TalkController {
      * 查看后台说说
      *
      * @param conditionVO 条件
-     * @return {@link Result<TalkBackDTO>} 说说列表
+     * @return {@link Result< TalkBackDTO >} 说说列表
      */
     @Operation(summary = "查看后台说说")
     @GetMapping("/admin/talks")
@@ -137,7 +88,7 @@ public class TalkController {
      * 根据id查看后台说说
      *
      * @param talkId 说说id
-     * @return {@link Result<TalkDTO>}
+     * @return {@link Result< TalkDTO >}
      */
     @Operation(summary = "根据id查看后台说说")
     @Parameter(name = "talkId", description = "说说id", required = true, example = "Integer")

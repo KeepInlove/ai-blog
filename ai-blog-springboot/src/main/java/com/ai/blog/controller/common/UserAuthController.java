@@ -1,9 +1,7 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.common;
 
 
 import com.ai.blog.annotation.AccessLimit;
-import com.ai.blog.dto.UserAreaDTO;
-import com.ai.blog.dto.UserBackDTO;
 import com.ai.blog.dto.UserInfoDTO;
 import com.ai.blog.service.UserAuthService;
 import com.ai.blog.vo.*;
@@ -13,8 +11,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * 用户账号控制器
@@ -43,29 +39,6 @@ public class UserAuthController {
         return Result.ok();
     }
 
-    /**
-     * 获取用户区域分布
-     *
-     * @param conditionVO 条件
-     * @return {@link Result<UserAreaDTO>} 用户区域分布
-     */
-    @Operation(summary = "获取用户区域分布")
-    @GetMapping("/admin/users/area")
-    public Result<List<UserAreaDTO>> listUserAreas(ConditionVO conditionVO) {
-        return Result.ok(userAuthService.listUserAreas(conditionVO));
-    }
-
-    /**
-     * 查询后台用户列表
-     *
-     * @param condition 条件
-     * @return {@link Result<UserBackDTO>} 用户列表
-     */
-    @Operation(summary = "查询后台用户列表")
-    @GetMapping("/admin/users")
-    public Result<PageResult<UserBackDTO>> listUsers(ConditionVO condition) {
-        return Result.ok(userAuthService.listUserBackDTO(condition));
-    }
 
     /**
      * 用户注册
@@ -90,19 +63,6 @@ public class UserAuthController {
     @PutMapping("/users/password")
     public Result<?> updatePassword(@Valid @RequestBody UserVO user) {
         userAuthService.updatePassword(user);
-        return Result.ok();
-    }
-
-    /**
-     * 修改管理员密码
-     *
-     * @param passwordVO 密码信息
-     * @return {@link Result<>}
-     */
-    @Operation(summary = "修改管理员密码")
-    @PutMapping("/admin/users/password")
-    public Result<?> updateAdminPassword(@Valid @RequestBody PasswordVO passwordVO) {
-        userAuthService.updateAdminPassword(passwordVO);
         return Result.ok();
     }
 

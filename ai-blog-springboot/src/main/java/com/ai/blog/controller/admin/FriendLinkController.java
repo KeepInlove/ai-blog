@@ -1,9 +1,7 @@
-package com.ai.blog.controller;
-
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.annotation.OptLog;
 import com.ai.blog.dto.FriendLinkBackDTO;
-import com.ai.blog.dto.FriendLinkDTO;
 import com.ai.blog.service.FriendLinkService;
 import com.ai.blog.vo.ConditionVO;
 import com.ai.blog.vo.FriendLinkVO;
@@ -21,33 +19,21 @@ import static com.ai.blog.constant.OptTypeConst.REMOVE;
 import static com.ai.blog.constant.OptTypeConst.SAVE_OR_UPDATE;
 
 /**
- * 友链控制器
- *
- * @author yezhiqiu
- * @date 2021/07/29
+ * @author Guoxinyu
+ * @description: TODO
+ * @date 2025-03-06 21:02
+ * @email gxy06x@qq.com
  */
 @Tag(name = "友链模块")
 @RestController
 public class FriendLinkController {
     @Autowired
     private FriendLinkService friendLinkService;
-
-    /**
-     * 查看友链列表
-     *
-     * @return {@link Result <FriendLinkDTO>} 友链列表
-     */
-    @Operation(summary = "查看友链列表")
-    @GetMapping("/links")
-    public Result<List<FriendLinkDTO>> listFriendLinks() {
-        return Result.ok(friendLinkService.listFriendLinks());
-    }
-
     /**
      * 查看后台友链列表
      *
      * @param condition 条件
-     * @return {@link Result<FriendLinkBackDTO>} 后台友链列表
+     * @return {@link Result < FriendLinkBackDTO >} 后台友链列表
      */
     @Operation(summary = "查看后台友链列表")
     @GetMapping("/admin/links")
@@ -82,6 +68,4 @@ public class FriendLinkController {
         friendLinkService.removeByIds(linkIdList);
         return Result.ok();
     }
-
 }
-

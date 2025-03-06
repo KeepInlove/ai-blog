@@ -26,7 +26,7 @@ public class UserDetailDTO implements UserDetails {
     /**
      * 用户账号id
      */
-    private Integer id;
+    private Long id;
 
     /**
      * 用户信息id

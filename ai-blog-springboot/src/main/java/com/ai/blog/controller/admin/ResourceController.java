@@ -1,4 +1,4 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.dto.LabelOptionDTO;
 import com.ai.blog.dto.ResourceDTO;
@@ -17,8 +17,6 @@ import java.util.List;
 /**
  * 资源控制器
  *
- * @author yezhiqiu
- * @date 2021/07/27
  */
 @Tag(name = "资源模块")
 @RestController

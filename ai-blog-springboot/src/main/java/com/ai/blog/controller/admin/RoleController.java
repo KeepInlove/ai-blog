@@ -1,4 +1,4 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.annotation.OptLog;
 import com.ai.blog.dto.RoleDTO;

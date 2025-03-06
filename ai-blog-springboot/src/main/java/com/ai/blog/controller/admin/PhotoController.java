@@ -1,14 +1,13 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.annotation.OptLog;
 import com.ai.blog.dto.PhotoBackDTO;
-import com.ai.blog.dto.PhotoDTO;
 import com.ai.blog.service.PhotoService;
 import com.ai.blog.vo.*;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,15 +15,16 @@ import java.util.List;
 import static com.ai.blog.constant.OptTypeConst.*;
 
 /**
- * 照片控制器
- *
- * @author yezhiqiu
- * @date 2021/08/05
+ * @author Guoxinyu
+ * @description: TODO
+ * @date 2025-03-06 21:55
+ * @email gxy06x@qq.com
  */
 @Tag(name = "照片模块")
 @RestController
 public class PhotoController {
-    @Autowired
+
+    @Resource
     private PhotoService photoService;
 
     /**
@@ -107,18 +107,6 @@ public class PhotoController {
     public Result<?> deletePhotos(@RequestBody List<Integer> photoIdList) {
         photoService.deletePhotos(photoIdList);
         return Result.ok();
-    }
-
-    /**
-     * 根据相册id查看照片列表
-     *
-     * @param albumId 相册id
-     * @return {@link Result<PhotoDTO>} 照片列表
-     */
-    @Operation(summary = "根据相册id查看照片列表")
-    @GetMapping("/albums/{albumId}/photos")
-    public Result<PhotoDTO> listPhotosByAlbumId(@PathVariable("albumId") Integer albumId) {
-        return Result.ok(photoService.listPhotosByAlbumId(albumId));
     }
 
 }

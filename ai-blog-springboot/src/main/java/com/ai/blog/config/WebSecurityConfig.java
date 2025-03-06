@@ -131,6 +131,7 @@ public class WebSecurityConfig  {
                                 "/v3/api-docs/**",
                                 "/swagger-resources",
                                 "/swagger-resources/**",
+                                "/swagger-ui.html",
                                 "/favicon.ico",
                                 "/login","/users/oauth/qq","/users/oauth/weibo","/register","/users/code","/static/**").permitAll()
                         .anyRequest().authenticated()

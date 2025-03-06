@@ -1,4 +1,4 @@
-package com.ai.blog.controller;
+package com.ai.blog.controller.admin;
 
 import com.ai.blog.annotation.OptLog;
 import com.ai.blog.dto.PhotoAlbumBackDTO;
@@ -13,8 +13,8 @@ import com.ai.blog.vo.Result;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,16 +25,16 @@ import static com.ai.blog.constant.OptTypeConst.SAVE_OR_UPDATE;
 
 /**
  * 相册控制器
- *
- * @author yezhiqiu
- * @date 2021/08/04
+ * @author Guoxinyu
+ * @date 2025-03-06 21:04
+ * @email gxy06x@qq.com
  */
 @Tag(name = "相册模块")
 @RestController
 public class PhotoAlbumController {
-    @Autowired
+    @Resource
     private UploadStrategyContext uploadStrategyContext;
-    @Autowired
+    @Resource
     private PhotoAlbumService photoAlbumService;
 
     /**
@@ -115,15 +115,6 @@ public class PhotoAlbumController {
         return Result.ok();
     }
 
-    /**
-     * 获取相册列表
-     *
-     * @return {@link Result<PhotoAlbumDTO>} 相册列表
-     */
-    @Operation(summary = "获取相册列表")
-    @GetMapping("/photos/albums")
-    public Result<List<PhotoAlbumDTO>> listPhotoAlbums() {
-        return Result.ok(photoAlbumService.listPhotoAlbums());
-    }
+
 
 }

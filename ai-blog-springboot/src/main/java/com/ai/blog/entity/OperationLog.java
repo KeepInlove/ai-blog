@@ -70,7 +70,7 @@ public class OperationLog {
     /**
      * 用户id
      */
-    private Integer userId;
+    private Long userId;
 
     /**
      * 用户昵称

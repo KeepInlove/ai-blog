@@ -1,6 +1,6 @@
 package com.ai.blog.util;
 
-import com.ai.blog.dto.UserDetailDTO;
+import com.ai.blog.dto.UserInfoDTO;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
@@ -19,8 +19,8 @@ public class UserUtils {
      *
      * @return 用户登录信息
      */
-    public static UserDetailDTO getLoginUser() {
-        return (UserDetailDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    public static UserInfoDTO getLoginUser() {
+        return (UserInfoDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 
 }
