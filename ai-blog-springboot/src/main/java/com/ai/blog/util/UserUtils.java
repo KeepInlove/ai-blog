@@ -20,7 +20,12 @@ public class UserUtils {
      * @return 用户登录信息
      */
     public static UserInfoDTO getLoginUser() {
-        return (UserInfoDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        return (UserInfoDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserInfoDTO dto = new UserInfoDTO();
+        dto.setId(1L);
+        dto.setUserInfoId(1);
+        dto.setIpAddress("127.0.0.1");
+        return dto;
     }
 
 }
