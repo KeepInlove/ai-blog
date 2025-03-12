@@ -126,7 +126,14 @@ public class WebSecurityConfig  {
                 // 权限控制配置
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/**").permitAll()
+                                "/doc.html",
+                                "/webjars/**",
+                                "/v3/api-docs/**",
+                                "/swagger-resources",
+                                "/swagger-resources/**",
+                                "/swagger-ui.html",
+                                "/favicon.ico",
+                                "/login","/users/oauth/qq","/users/oauth/weibo","/register","/users/code","/static/**").permitAll()
                         .anyRequest().authenticated()
                         .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
                             @Override
@@ -146,9 +153,9 @@ public class WebSecurityConfig  {
                 // 添加Logout filter
                 .logout(logout -> logout.logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler))
                 // 添加JWT filter
-//                .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 // 添加CORS filter
-//                .addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class)
+                .addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class)
                 .addFilterBefore(corsFilter, LogoutFilter.class);
 
         return http.build();

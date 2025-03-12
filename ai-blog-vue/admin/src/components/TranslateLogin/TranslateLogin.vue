@@ -118,7 +118,9 @@
                     if (data.flag) {
                         // 登录后保存用户信息
                         // this.$store.commit("login", data.data);
-                      store.commit("login", data.data);
+                       store.commit("login", data.data);
+                      //可以单独抽出useUserStore存储user的data和token
+                       localStorage.setItem("token",data.data)
                         // 加载用户菜单
                         generaMenu().then(()=>{
                           that.$message.success("登录成功");
