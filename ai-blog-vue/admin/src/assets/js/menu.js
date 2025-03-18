@@ -8,9 +8,14 @@ import service from "@/utils/request.js";
 const modules = import.meta.glob('./../../views/**/*.vue')
 
 export function generaMenu() {
+  const token=localStorage.getItem("token")
+  console.log("Token from localStorage:", token);
   // 查询用户菜单
   return new Promise((resolve, reject) => {
     service({
+      headers: {
+        Authorization: "Bearer " + token
+      },
       url:"/admin/user/menus",
       method:"get"
     }).then(({ data }) => {
