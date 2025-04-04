@@ -73,6 +73,7 @@
     import {adminLogin} from "@/api/user";
     import router from '@/router/index.js'
     import store from '@/store/index.js'
+    import {setToken} from "@/utils/auth.js";
 
     export default {
         name: "TranslateLogin",
@@ -120,6 +121,7 @@
                         // this.$store.commit("login", data.data);
                        store.commit("login", data.data);
                       //可以单独抽出useUserStore存储user的data和token
+                      setToken(data.data)
                        localStorage.setItem("token",data.data)
                         // 加载用户菜单
                         generaMenu().then(()=>{
